@@ -7,7 +7,7 @@ namespace Program
         static void Main(string[] args)
         {
             //==========Static field==============
-            Console.WriteLine("Number of saved measurements:"+Measurement.NoOfMeasurements);
+            Console.WriteLine("Number of saved measurements:" + Measurement.NoOfMeasurements);
             //=========Inheritance================
             GammaRadiationMeasurement gammacheck1=new GammaRadiationMeasurement("CLOR GAMMA1");
             GammaRadiationMeasurement gammacheck2=new GammaRadiationMeasurement("CLOR GAMMA2");
@@ -33,15 +33,15 @@ namespace Program
                 //-----------------------------------------
 
                 //===========Indexer+enum=============
-                check[(int)Measurement.MeasurementConditions.Temperature]=temperature;
-                check[(int)Measurement.MeasurementConditions.Pressure]=presseure;
-                check[(int)Measurement.MeasurementConditions.Humidity]=humidity;
+                check[(int)Measurement.MeasurementsConditions.Temperature]=temperature;
+                check[Measurement.MeasurementsConditions.Pressure]=presseure; //Dlaczego to nie działa a to wyżej działa?
+                check[Measurement.MeasurementsConditions.Humidity]=humidity;
                 check.Print();
             }
             //========================================================
             Console.WriteLine("\n*****HTMLPRINTING******\n");
             //============interfejsy=================================
-            Report report=new Report();
+            Report report = new Report();
             PrintToHTML(report);
             PrintToHTML(CLORmeasurements[1]);
             PrintToHTML(CLORmeasurements[2]);

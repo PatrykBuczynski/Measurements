@@ -12,10 +12,19 @@ namespace Program
         {
 
         }
-        public override void print()
+        public override void Print()
         {
-            Console.WriteLine(RadiationLevel);
-            base.print();
+            base.Print();
+            Console.WriteLine("Radiation level: " + RadiationLevel);
+        }
+
+        public new string ToHTMLString() 
+        {
+            return base.ToHTMLString();
+        }
+        public new void GenerateHTML() 
+        {
+            Console.WriteLine(ToHTMLString());
         }
 
     }

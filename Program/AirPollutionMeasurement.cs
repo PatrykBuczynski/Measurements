@@ -13,12 +13,20 @@ namespace Program
         {
 
         }
-        public override void print()
+        public override void Print()
         {
-            Console.WriteLine(PM2_5 + " " + PM10);
-            base.print();
+            base.Print();
+            Console.WriteLine("Air pollution - PM2.5: " + PM2_5 + " PM10: " + PM10);
         }
 
+        public new string ToHTMLString() 
+        {
+            return (base.ToHTMLString());
+        }
+        public new void GenerateHTML() 
+        {
+            Console.WriteLine(ToHTMLString());
+        }
 
     }
 }

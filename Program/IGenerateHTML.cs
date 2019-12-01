@@ -7,7 +7,7 @@ namespace Program
     interface IGenerateHTML
     {
         string ToHTMLString();
-        void generateHTML();
+        void GenerateHTML();
 
     }
 }

@@ -12,6 +12,7 @@ namespace Program
         static int noOfMeasurements = 0;
         public Measurement(string nameOfTheStation = "No Name!")
         {
+            stationName = nameOfTheStation;
             date = DateTime.Now;
             for (int i = 0; i < 3; i++)
             {
@@ -23,10 +24,10 @@ namespace Program
         {
             noOfMeasurements--;
         }
-        public virtual void print()
+        public virtual void Print()
         {
-            string dateInString = date.ToString();
-            Console.WriteLine(dateInString + " " + conditions[(int)MeasurementsConditions.Temperature] + " " + conditions[(int)MeasurementsConditions.Pressure] + " " + conditions[(int)MeasurementsConditions.Humidity]);
+            Console.WriteLine("Station name: " + stationName + ", time of the measurement: " + date + " \nConditions - temperature: " 
+                + String.Format("{0:N1}", conditions[(int)MeasurementsConditions.Temperature]) + ", pressure: " + conditions[(int)MeasurementsConditions.Pressure] + ", humidity: " + conditions[(int)MeasurementsConditions.Humidity]);
 
         }
         public enum MeasurementsConditions { Temperature = 0, Pressure = 1, Humidity = 2 };
@@ -42,7 +43,7 @@ namespace Program
                 conditions[(int)pos] = value;
             }
         }
-        public int NoOfMeasurements 
+        public static int NoOfMeasurements 
         {
             get 
             {
@@ -52,11 +53,12 @@ namespace Program
         public string ToHTMLString() 
         {
             return ("<font color = 'red' > =========POMIAR========= </font> <br />" + "\n" +
-                "Station name: " + stationName + ", time of measurement:"  );
+                "Station name: " + stationName + ", time of measurement: " + date + "<br />" + "\n" +
+                "Conditions - temperature: " + this[MeasurementsConditions.Temperature] + ", pressure: " + this[MeasurementsConditions.Pressure] + ", humidity: " + this[MeasurementsConditions.Humidity] + "<br />" + "\n");
         }
-        public void generateHTML() 
+        public void GenerateHTML() 
         {
-
+            Console.WriteLine(ToHTMLString());
         }
 
 
